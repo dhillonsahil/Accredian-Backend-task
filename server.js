@@ -52,13 +52,13 @@ async function sendReferralEmail(name, email) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'sahil2002427@gmail.com',
-            pass: 'oijmcjecztefdewr',
+            user: process.env.NODEMAILER_EMAIL,
+            pass: process.env.NODEMAILER_PASSWORD,
         },
     });
 
     const mailOptions = {
-        from: 'sahil2002427@gmail.com',
+        from: process.env.NODEMAILER_EMAIL,
         to: email,
         subject: 'Referral Submission Confirmation',
         text: `Dear ${name},\n\nThank you for your referral. We have received your information.\n\nBest regards,\nYour Company Name`,
