@@ -67,6 +67,9 @@ async function sendReferralEmail(name, email) {
     await transporter.sendMail(mailOptions);
 }
 
+app.get('/', async (req, res) => {
+    return res.json({ message: "Hello Server is running fine !" })
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
